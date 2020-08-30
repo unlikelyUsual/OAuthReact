@@ -12,6 +12,7 @@
 node_tmp/
 node_modules/
 npm-debug.log.*
+config/config.env
 
 ######################
 # SASS
