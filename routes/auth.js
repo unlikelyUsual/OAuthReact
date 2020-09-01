@@ -27,6 +27,10 @@ router.get('/login/success', (req,res)=>{
             user : req.user
         })
     }
+    else res.status(400).json({
+        message : "User Not Authenticated",
+        user : null
+    })
 });
 
 

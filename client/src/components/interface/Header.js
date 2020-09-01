@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Header extends Component {
 
@@ -12,16 +13,14 @@ export default class Header extends Component {
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i className="fa fa-bars"></i>
                 </button>
-                    <a className="navbar-brand" href="index.html"><img src="" className="logo" alt="" /></a>
+                    <Link className="navbar-brand" to="/"><img src="" className="logo" alt="" /></Link>
                 </div>
                
-
-            
                 <div className="collapse navbar-collapse" id="navbar-menu">
                     <ul className="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li className="nav-item active"><a className="nav-link" href="index.html">Home</a></li>
-                        <li className="nav-item"><a className="nav-link" href="shop.html">SHOP</a></li>
-                        <li className="nav-item"><a className="nav-link" href="my-account.html">My Account</a></li>
+                        <li className="nav-item active"><Link className="nav-link" to="/">Home</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/shop">SHOP</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/account">My Account</Link></li>
                     </ul>
                 </div>
                 <div className="attr-nav">

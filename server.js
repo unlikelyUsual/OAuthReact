@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const session = require('express-session');
+const morgan = require('morgan');
+const cors = require('cors');
 
 //Set Config Path
 dotenv.config({path : "./config/config.env"});
@@ -12,6 +14,16 @@ require("./config/databaseConfig")();
 
 //Express
 const app = express();
+
+app.use(
+    cors({
+      origin: "http://localhost:3000", // allow to server to accept request from different origin
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      credentials: true // allow session cookie from browser to pass through
+    })
+  );
+
+app.use(morgan('combined'));
 
 // Express Cokkie
 app.use(session({
