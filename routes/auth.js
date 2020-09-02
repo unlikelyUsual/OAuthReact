@@ -2,6 +2,8 @@ const router = require('express').Router();
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = require('../model/User');
+const path = require('path')
+const CLIENT_HOME_PAGE_URL = "http://localhost:3000";
 
 
 // GET  /auth/google
@@ -14,7 +16,7 @@ router.get('/google', passport.authenticate('google',{scope : ['email','profile'
 router.get(
     '/google/callback',  
     passport.authenticate("google", {
-    successRedirect:"/auth/login/success",
+    successRedirect: CLIENT_HOME_PAGE_URL,
     failureRedirect: "/auth/login/failed"
 }));
 
@@ -22,6 +24,7 @@ router.get(
 // Success Google Auth 
 router.get('/login/success', (req,res)=>{
     if (req.user) {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
         res.json({
             message : "User authenticate",
             user : req.user

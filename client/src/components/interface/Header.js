@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
 
-export default class Header extends Component {
+class Header extends Component {
 
     render() {
         return (
@@ -20,7 +21,7 @@ export default class Header extends Component {
                     <ul className="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li className="nav-item active"><Link className="nav-link" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/shop">SHOP</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/account">My Account</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/account">{ this.props.isAuthenticated ? this.props.user.name  : 'My Account' }</Link></li>
                     </ul>
                 </div>
                 <div className="attr-nav">
@@ -40,3 +41,11 @@ export default class Header extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+ user : state.auth.user,
+ isAuthenticated : state.auth.isAuthenticated 
+});
+
+
+export default connect(mapStateToProps,{})(Header);

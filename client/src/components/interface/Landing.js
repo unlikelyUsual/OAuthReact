@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Header from './Header'
-import Footer from './Footer'
 import image1 from '../../images/img-pro-01.jpg'
 import image2 from '../../images/img-pro-02.jpg'
 import image3 from '../../images/img-pro-03.jpg'

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {connect} from 'react-redux';
 
-export default class UserAccount extends Component {
+class UserAccount extends Component {
     
     constructor(props){
         super(props);
@@ -20,32 +21,7 @@ export default class UserAccount extends Component {
 
 
     componentDidMount(){
-        fetch('http://localhost:5000/auth/login/success',{
-            method : 'GET',
-            credentials: "include",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Credentials": true
-            }
-        })
-        .then(res=>{
-            console.log(res);
-            if(res.status === 200) return res.json();
-            else throw new Error("User Not Authenticated")
-        })
-        .then(userDate=>{
-            this.setState({
-                user : userDate.user,
-                isAuthenticated : true
-            })
-        })
-        .catch(e=>{
-            this.setState({
-                isAuthenticated : false
-            })
-        });
-
+  
     }
 
     render() {
@@ -68,3 +44,9 @@ export default class UserAccount extends Component {
         )
     }
 }
+
+const mapStateToProps = state =>({
+    user : state.auth
+});
+
+export default connect(mapStateToProps,{})(UserAccount);
