@@ -19,18 +19,7 @@ export default class Landing extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="special-menu text-center">
-                                <div className="button-group filter-button-group">
-                                    <button className="active" data-filter="*">All</button>
-                                    <button data-filter=".top-featured">Top featured</button>
-                                    <button data-filter=".best-seller">Best seller</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
+                    
                     <div className="row special-list">
                         <div className="col-lg-3 col-md-6 special-grid best-seller">
                             <div className="products-single fix">

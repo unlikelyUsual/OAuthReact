@@ -21,6 +21,18 @@ const UserSchema = new Schema({
     image: {
         type: String,
     },
+    email: {
+        type: String,
+    },
+    age: {
+        type: String,
+    },
+    mobile: {
+        type: String,
+    },
+    address: {
+        type: String,
+    },
     createdOn: {
         type: Date,
        default : Date.now()

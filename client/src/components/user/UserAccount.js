@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
+import GoogleLogin from './GoogleLogin';
+import UserDetail from './UserDetail';
 
 class UserAccount extends Component {
     
@@ -21,32 +23,27 @@ class UserAccount extends Component {
 
 
     componentDidMount(){
-  
+        if(this.props.auth.isAuthenticated){
+            this.setState({
+                isAuthenticated : true,
+                user : this.props.auth.user
+            });
+        }
     }
 
     render() {
-        return (
-            <div className="user-login">
-                 <div className="col-sm-8 mx-auto p-5">
-                        <h2 className="mb-3">Login</h2>
-                        <p className="mb-3">Login Or Create Account with Google</p>
-                        <form id="contactForm">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="submit-button text-center">
-                                        <button className="btn hvr-hover p-4" id="submit" type="submit" onClick={this.loginWithGoogle}> <i className="fab fa-lg fa-google-plus-g"></i> Google Plus</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-            </div>
-        )
+        // return <UserDetail user={this.props.auth.user} />
+        if(!this.state.isAuthenticated){
+           return <GoogleLogin  clickHanlder={this.loginWithGoogle} />
+        }
+        else {
+           return <UserDetail user={this.props.auth.user} />
+        } 
     }
 }
 
 const mapStateToProps = state =>({
-    user : state.auth
+    auth : state.auth
 });
 
 export default connect(mapStateToProps,{})(UserAccount);

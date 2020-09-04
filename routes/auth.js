@@ -24,7 +24,6 @@ router.get(
 // Success Google Auth 
 router.get('/login/success', (req,res)=>{
     if (req.user) {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
         res.json({
             message : "User authenticate",
             user : req.user

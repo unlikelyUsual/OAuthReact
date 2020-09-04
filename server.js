@@ -5,6 +5,7 @@ const passport = require("passport");
 const session = require('express-session');
 const morgan = require('morgan');
 const cors = require('cors');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 //Set Config Path
 dotenv.config({path : "./config/config.env"});
@@ -15,19 +16,32 @@ require("./config/databaseConfig")();
 //Express
 const app = express();
 
+// Cors
 app.use(
     cors({
       origin: "http://localhost:3000", // allow to server to accept request from different origin
       methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
       credentials: true // allow session cookie from browser to pass through
     })
-  );
+);
 
+//Morgan Middleware
 app.use(morgan('combined'));
+
+//MongoDb session Store
+const store = new MongoDBStore({
+  uri: process.env.MONGO_URI,
+  collection: 'mySessions'
+});
+ 
+store.on('error', function(error) {
+  console.log(error);
+});
 
 // Express Cokkie
 app.use(session({
     secret: 'keyboard cat',
+    store: store,
     resave: false,
     saveUninitialized: false
 }))

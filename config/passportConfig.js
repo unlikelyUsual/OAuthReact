@@ -26,6 +26,7 @@ const initialize = (passport) => {
                    firstName : profile.name.familyName,
                    lastName : profile.name.givenName,
                    image : profile.photos[0].value,
+                   email : profile.emails[0].value
                });
 
               const saveUser = await newUser.save();
