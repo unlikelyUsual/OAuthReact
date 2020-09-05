@@ -4,6 +4,7 @@ import Landing from "./components/interface/Landing";
 import Header from "./components/interface/Header";
 import Footer from "./components/interface/Footer";
 import UserAccount from "./components/user/UserAccount";
+import EditAccount from "./components/user/EditAccount";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import store from "./store";
 import { Provider } from "react-redux";
@@ -42,11 +43,8 @@ function App() {
         <Router>
           <Header/>
           <Route path="/" exact component={Landing}></Route>
-          <Route path="/account" component={UserAccount}></Route>
-          <Route
-            path="http//:localhost:5000/auth/login/success"
-            component={UserAccount}
-          ></Route>
+          <Route path="/account" exact component={UserAccount}></Route>
+          <Route path="/account/edit" component={EditAccount}></Route>
           <Footer />
         </Router>
       </Provider>

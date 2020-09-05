@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
  class UserDetail extends Component {
 
@@ -67,7 +68,7 @@ import {connect} from 'react-redux'
                             </div>
                         </div>
                         <div className="col-sm-10 mb-3 text-center">
-                           <button className="btn btn-primary">Edit Profile</button>  
+                           <button className="btn btn-primary"><Link to="/account/edit">Edit Profile</Link></button>  
                         </div>
                         
                     </div>
