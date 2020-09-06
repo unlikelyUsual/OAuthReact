@@ -68,7 +68,7 @@ import {Link} from 'react-router-dom'
                             </div>
                         </div>
                         <div className="col-sm-10 mb-3 text-center">
-                           <button className="btn btn-primary"><Link to="/account/edit">Edit Profile</Link></button>  
+                            <Link to="/account/edit" className="btn btn-success">Edit Profile</Link>
                         </div>
                         
                     </div>

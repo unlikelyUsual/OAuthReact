@@ -2,19 +2,20 @@
 import  * as actionType  from '../actions/actionTypes';
 
 const initialState = {
-    isAuthenticated : false,
-    user : {}
+    errors : {}
 };
 
 const reducer = (state = initialState,action) => {
 
     switch(action.type){
-        case actionType.SET_USER:
+        case actionType.GET_ERROR:
          return  {
-             ...state,
-             isAuthenticated : true,
-             user : action.payload
+             errors : action.payload
          }
+         case actionType.CLEAR_ERROR:
+            return  {
+                errors : {}
+            }
         default:
             return state;
     }

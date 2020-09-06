@@ -8,7 +8,7 @@ import EditAccount from "./components/user/EditAccount";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import store from "./store";
 import { Provider } from "react-redux";
-import {LOGIN_USER} from './actions/actionTypes';
+import {SET_USER} from './actions/actionTypes';
 
 
 (async () => {
@@ -27,10 +27,8 @@ import {LOGIN_USER} from './actions/actionTypes';
   if(request.status == 200){
     //Set User in Store
     store.dispatch({
-      type: LOGIN_USER,
-      payload : {
-        user : res.user
-      }
+      type: SET_USER,
+      payload : res.user
     });
   }
 
