@@ -27,11 +27,11 @@ class Header extends Component {
                 <div className="attr-nav">
                     <ul>
                         <li className="side-menu">
-							<a href="#">
+							<Link to="#">
 								<i className="fa fa-shopping-bag"></i>
 								<span className="badge">3</span>
 								<p>My Cart</p>
-							</a>
+							</Link>
 						</li>
                     </ul>
                 </div>

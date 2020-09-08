@@ -24,7 +24,7 @@ import {SET_USER} from './actions/actionTypes';
 
   const res = await request.json();
 
-  if(request.status == 200){
+  if(request.status === 200){
     //Set User in Store
     store.dispatch({
       type: SET_USER,

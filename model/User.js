@@ -33,6 +33,10 @@ const UserSchema = new Schema({
     address: {
         type: String,
     },
+    cart : {
+        type : Schema.Types.ObjectId,
+        ref : 'card'
+    },
     createdOn: {
         type: Date,
        default : Date.now()

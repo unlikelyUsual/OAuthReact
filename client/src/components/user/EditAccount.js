@@ -55,7 +55,7 @@ class EditAccount extends Component {
     return (
       <div>
         <div className="user-background mb-5">
-          <img src={this.props.auth.user.image} className="user-image" />
+          <img src={this.props.auth.user.image} className="user-image" alt={this.state.name} />
           <div className="user-image"></div>
         </div>
 

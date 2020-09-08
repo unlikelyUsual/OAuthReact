@@ -3,17 +3,12 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
  class UserDetail extends Component {
-
-    constructor(props){
-        super(props);
-    }
-
     render() {
         const user = this.props.user;
         return (
             <div>
                 <div className="user-background mb-5">
-                    <img src={user.image} className="user-image" /> 
+                    <img src={user.image} className="user-image"  alt={user.name}/> 
                   <div className="user-image"></div>
                 </div>
 
@@ -82,4 +77,4 @@ const mapStateToProps = state => ({
 user : this.auth.user
 });
 
-export default connect()(UserDetail);
+export default connect(mapStateToProps,{})(UserDetail);

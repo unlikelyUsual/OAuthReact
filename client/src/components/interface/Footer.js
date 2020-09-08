@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 export default function Footer() {
 	return (
@@ -21,9 +22,9 @@ export default function Footer() {
 									<h3>Social Media</h3>
 									<p>Find Us on Social Media</p>
 									<ul>
-										<li><a href="#"><i className="fab fa-facebook" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i className="fab fa-twitter" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i className="fab fa-google-plus" aria-hidden="true"></i></a></li>
+										<li><Link to="#"><i className="fab fa-facebook" aria-hidden="true"></i></Link></li>
+										<li><Link to="#"><i className="fab fa-twitter" aria-hidden="true"></i></Link></li>
+										<li><Link to="#"><i className="fab fa-google-plus" aria-hidden="true"></i></Link></li>
 									</ul>
 								</div>
 							</div>
@@ -37,7 +38,7 @@ export default function Footer() {
 			<p className="footer-company">All Rights Reserved. &copy; {new Date().getFullYear()}</p>
 		</div>
   
-         <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+         <Link to="#" id="back-to-top" title="Back to top">&uarr;</Link>
 	</div>
 	)
 }
