@@ -5,6 +5,7 @@ import Header from "./components/interface/Header";
 import Footer from "./components/interface/Footer";
 import UserAccount from "./components/user/UserAccount";
 import EditAccount from "./components/user/EditAccount";
+import Cart from './components/cart/Cart';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import store from "./store";
 import { Provider } from "react-redux";
@@ -43,6 +44,7 @@ function App() {
           <Route path="/" exact component={Landing}></Route>
           <Route path="/account" exact component={UserAccount}></Route>
           <Route path="/account/edit" component={EditAccount}></Route>
+          <Route path="/cart" component={Cart}></Route>
           <Footer />
         </Router>
       </Provider>
